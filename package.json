@@ -1,0 +1,23 @@
+{
+  "name": "screenboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maykbrito/screenboard.git"
+  },
+  "keywords": [
+    "screen",
+    "drawer"
+  ],
+  "author": "Mayk Brito",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maykbrito/screenboard/issues"
+  },
+  "homepage": "https://github.com/maykbrito/screenboard#readme"
+}
