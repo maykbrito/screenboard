@@ -16,6 +16,8 @@
 
 Small presentation video https://youtu.be/xF7OLhD03vo
 
+⚠️ Only tested in MacOS.
+
 ### 🏠 [Homepage](https://github.com/maykbrito/screenboard#readme)
 
 ## Install
