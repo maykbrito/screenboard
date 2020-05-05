@@ -6,6 +6,7 @@
 
 html {
     background-color: transparent;
+    overflow: hidden;
 }
 
 #controllers {
