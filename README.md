@@ -30,6 +30,8 @@ npm install
 npm start
 ```
 
+While it's running in your terminal, you can close screenboard with `CMD + w` and reopen it with `CMD + F12`
+
 ## Author
 
 👤 **Mayk Brito**
