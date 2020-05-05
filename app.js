@@ -6,26 +6,27 @@ function createWindow () {
     const mainScreen = screen.getPrimaryDisplay();
     const dimensions = mainScreen.size;
 
-  // Create the browser window.
-  win = new BrowserWindow({
-    width: dimensions.width,
-    height: dimensions.height,
-    transparent:true,
-    frame:false,
-    titleBarStyle: 'hidden'
-    // alwaysOnTop: true,
-    // webPreferences: {
-    //   nodeIntegration: true
-    // }
-  })
+    // Create the browser window.
+    app.allowRendererProcessReuse = true
+    win = new BrowserWindow({
+      width: dimensions.width,
+      height: dimensions.height,
+      transparent: true,
+      frame: false,
+      titleBarStyle: 'hidden',
+      webPreferences: {
+        nodeIntegration: true
+      }
+    })
 
-  // and load the index.html of the app.
-  win.loadFile('index.html')
+    // and load the index.html of the app.
+    win.loadFile('index.html')
 }
 
 
 function createShortcuts() {
     globalShortcut.register('Cmd+F12', recreateWindow)
+    globalShortcut.register('Cmd+C', () => win.webContents.send('clear'))
 }
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -36,11 +37,11 @@ app.whenReady()
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
+    // On macOS it is common for applications and their menu bar
+    // to stay active until the user quits explicitly with Cmd + Q
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
 })
 
 app.on('activate', recreateWindow)
