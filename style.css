@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: transparent;
+}
+
+#controllers {
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
 #board {
     border-top: 1px solid #7159c1;
 }

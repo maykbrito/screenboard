@@ -1,10 +1,10 @@
 {
   "name": "screenboard",
   "version": "1.0.0",
-  "description": "",
+  "description": "👨🏾‍🏫 It's a overlay blackboard on your screen",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron app.js"
   },
   "repository": {
     "type": "git",
@@ -12,12 +12,20 @@
   },
   "keywords": [
     "screen",
-    "drawer"
+    "drawer",
+    "overlay",
+    "blackboard",
+    "html canvas",
+    "canvas",
+    "electron"
   ],
   "author": "Mayk Brito",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/maykbrito/screenboard/issues"
   },
-  "homepage": "https://github.com/maykbrito/screenboard#readme"
+  "homepage": "https://github.com/maykbrito/screenboard#readme",
+  "devDependencies": {
+    "electron": "^8.2.5"
+  }
 }
