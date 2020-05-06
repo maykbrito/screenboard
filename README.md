@@ -34,6 +34,8 @@ npm install
 ```sh
 npm start
 ```
+
+## Running Systems
 all Systems:
 While it's running in your terminal, you can clear de window with `CMD + b` / `CRTL + b`, and close with `CMD + w` / `CRTL + w`
 
@@ -46,7 +48,13 @@ While it's running in your terminal, you can close screenboard with `ALT + F4` a
 Only Linux
 While it's running in your terminal, minimize and maximize it with `CRTL + F11`.
 
-Author
+
+## Portable
+You can portable the app with Electron Packager
+https://github.com/electron/electron-packager
+
+shell: npm install electron-packager --save-dev
+shell: electron-packager . (compile all app)
 
 ## Author
 
