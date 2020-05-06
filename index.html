@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,45 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="controllers">
-        <input type="color" name="color" id="color" value="#FF0000">
-        <input type="range" name="size" id="size" min="1" max="10">
+        <div class="subMenu">
+            <h3>COLORS</h3>
+            <div id="subMenu_1">
+                <input type="color" name="color" id="color" value="#FF0000">
+                <input type="range" name="size" id="size" min="1" max="10">
+            </div>
+        </div>
+
+        <div class="subMenu">
+            <h3>SHAPES</h3>
+            <div id="subMenu_2">
+                <input type="radio" name="shape" id="shape-1" value="Free" checked>
+                <label for="shape-1">Free</label>
+                <input type="radio" name="shape" id="shape-2" value="Line">
+                <label for="shape-2">Line</label>
+                <input type="radio" name="shape" id="shape-3" value="Square">
+                <label for="shape-3">Square</label>
+                <input type="radio" name="shape" id="shape-4" value="Circle">  
+                <label for="shape-4">Circle</label>            
+            </div>
+        </div>
+
+        <div class="subMenu">
+            <h3>ACTIONS</h3>
+            <div id="subMenu_3">
+                <button>Start</button>
+                <button>Stop</button>
+            </div>
+        </div>
     </div>
+
     <canvas id="board"></canvas>
 
     <script src="components/main.js" type="module"></script>
+
+
 </body>
+
 </html>
