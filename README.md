@@ -34,6 +34,8 @@ npm start
 
 While it's running in your terminal, you can close screenboard with `CMD + w` and reopen it with `CMD + F12`
 
+---
+
 ## Author
 
 👤 **Mayk Brito**
@@ -57,6 +59,8 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+---
 
 ## 📝 License
 
