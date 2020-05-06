@@ -16,7 +16,9 @@
 
 Small presentation video https://youtu.be/xF7OLhD03vo
 
-⚠️ Only tested in MacOS.
+🏠 This version was tested only with windows 10.
+⚠️ Not tested in MacOS.
+
 
 ### 🏠 [Homepage](https://github.com/maykbrito/screenboard#readme)
 
@@ -31,8 +33,11 @@ npm install
 ```sh
 npm start
 ```
-
+Only MacOS:
 While it's running in your terminal, you can close screenboard with `CMD + w` and reopen it with `CMD + F12`
+
+Only WINDOWS 10: 
+While it's running in your terminal, you can close screenboard with `CMD + w` o `ALT + F4` and you can clear the screen with `CRTL + F12`
 
 ## Author
 

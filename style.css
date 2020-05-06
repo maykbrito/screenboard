@@ -5,7 +5,9 @@
 }
 
 html {
-    background-color: transparent;
+	background-image: url("transparent.png") ;
+	background-size: cover;
+	overflow: hidden; 
 }
 
 #controllers {
@@ -14,5 +16,6 @@ html {
     left: 0;
 }
 #board {
-    border-top: 1px solid #7159c1;
+    border-top: 0px solid #7159c1;
+
 }
