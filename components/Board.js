@@ -1,4 +1,4 @@
-import { Controls } from "./Controls.js"
+import Controls from "./controls/index.js"
 
 export function Board (canvas) {
 
@@ -29,13 +29,10 @@ export function Board (canvas) {
         // when mouse moving
         canvas.addEventListener('mousemove', draw)
 
-        
-
     }
 
     // when change window size, resize canvas
     function resize() {
-        console.log('resize')
         canvas.height = window.innerHeight
         canvas.width = window.innerWidth
     }
@@ -61,11 +58,16 @@ export function Board (canvas) {
         // Am I drawning?
         if (!isDrawning) return;
 
-        // style of line
+        
+
+        // basic init style of line, in case of it's no control
         // context.lineWidth = 5;
-        context.lineCap = 'round'
         // context.strokeStyle = 'red'
-        controls.updateStyle()
+        context.lineCap = 'round'
+
+        // update controls
+        controls.updateAll()
+
 
         // drawning the line geting mouse position
         context.lineTo(event.clientX, event.clientY)

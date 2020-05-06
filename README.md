@@ -16,10 +16,7 @@
 
 Small presentation video https://youtu.be/xF7OLhD03vo
 
-🏠 This version was tested with windows 10.
-⚠️ Not tested in MacOS.
-⚠️ Not tested in Linux.
-
+⚠️ Only tested in MacOS.
 
 ### 🏠 [Homepage](https://github.com/maykbrito/screenboard#readme)
 
@@ -35,26 +32,11 @@ npm install
 npm start
 ```
 
-## Running Systems
-all Systems:
-While it's running in your terminal, you can clear de window with `CMD + b` / `CRTL + b`, and close with `CMD + w` / `CRTL + w`
+While it's running in your terminal, you can close screenboard with `Cmd + w` (MacOS) or `Ctrl + w` (Windows or Linux) and reopen it with `Cmd + Shift + w` (MacOS) or `Ctrl + Shift + w` (Windows or Linux)
 
-Only MacOS:
-While it's running in your terminal, you can close screenboard with `CMD + w` and reopen it with `CMD + F12`
+You can customize `your own reopen shortcut` in `./shortcuts.js` file.
 
-Only WINDOWS 10: 
-While it's running in your terminal, you can close screenboard with `ALT + F4` and you can relaunch app with `CRTL + F12`
-
-Only Linux
-While it's running in your terminal, minimize and maximize it with `CRTL + F11`.
-
-
-## Portable
-You can portable the app with Electron Packager
-https://github.com/electron/electron-packager
-
-shell: npm install electron-packager --save-dev
-shell: electron-packager . (compile all app)
+---
 
 ## Author
 
@@ -69,9 +51,18 @@ shell: electron-packager . (compile all app)
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/maykbrito/screenboard/issues). You can also take a look at the [contributing guide](https://github.com/maykbrito/screenboard/blob/master/CONTRIBUTING.md).
 
+## Contributors
+
+| | |
+| ---- | ---- |
+| maykbrito | dioneijd | | 
+| <img width="50" src="https://avatars2.githubusercontent.com/u/6643122?s=460&u=1e9e1f04b76fb5374e6a041f5e41dce83f3b5d92&v=4"> | <img width="50" src="https://avatars3.githubusercontent.com/u/49819948?s=460&u=d4c758690cffa52953e05088e2573f4eb5beb1ec&v=4"> | |
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+---
 
 ## 📝 License
 

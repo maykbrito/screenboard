@@ -8,14 +8,33 @@ html {
 	background-image: url("transparent.png") ;
 	background-size: cover;
 	overflow: hidden; 
+	font-family: arial, sans-serif;
 }
 
 #controllers {
     position: absolute;
     top: 20px;
     left: 0;
-}
-#board {
-    border-top: 0px solid #7159c1;
 
+    background-color: rgba(255,255,255, 0.8);
+    padding:8px 16px;
+
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
 }
+
+#controllers input {
+    margin-right: 8px;   
+}
+
+#controllers input:last-child {
+    margin-left: 8px;
+    margin-right: 0px;
+}
+
+#board {
+    border-top: 1px solid #7159c1;
+}
+
