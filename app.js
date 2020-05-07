@@ -2,6 +2,7 @@ const { app, BrowserWindow, screen, globalShortcut } = require('electron')
 const shortcuts = require('./shortcuts')
 
 let win = null
+app.allowRendererProcessReuse = true
 
 function createWindow () {
     const mainScreen = screen.getPrimaryDisplay();
