@@ -28,6 +28,8 @@ function createWindow () {
 function createShortcuts() {
   const reopen = shortcuts.reopen || 'CmdOrCtrl+F12'
   globalShortcut.register(reopen, recreateWindow)
+  const minimaze = shortcuts.minimaze
+  globalShortcut.register(minimaze, minimazeWindow)
 }
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -54,6 +56,15 @@ function recreateWindow() {
     if (BrowserWindow.getAllWindows().length === 0) {
       setTimeout(createWindow, 200)
     }
+}
+
+function minimazeWindow(){
+  if (win.isMaximized()) {
+    win.minimize();
+  }
+  if (win.isMinimized()) {
+    win.maximize();
+  }
 }
 
 // In this file you can include the rest of your app's specific main process
