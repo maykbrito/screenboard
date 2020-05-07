@@ -1,13 +1,13 @@
 import Size from './Size.js'
 import Color from './Color.js'
-import Eraser from './Eraser.js'
+import Tools from './Tools.js'
 
 export default function(context) {
 
     const controls = [
         Size(context),
-        Eraser(context),
-        Color(context)
+        Color(context),
+        Tools(context)
     ]
 
     function updateAll() {
