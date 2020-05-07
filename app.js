@@ -1,4 +1,5 @@
 const { app, BrowserWindow, screen, globalShortcut } = require('electron')
+const shortcuts = require('./shortcuts')
 
 let win = null
 
@@ -25,7 +26,8 @@ function createWindow () {
 
 
 function createShortcuts() {
-    globalShortcut.register('Cmd+F12', recreateWindow)
+  const reopen = shortcuts.reopen || 'CmdOrCtrl+F12'
+  globalShortcut.register(reopen, recreateWindow)
 }
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
