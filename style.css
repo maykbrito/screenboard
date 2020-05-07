@@ -5,10 +5,12 @@
 }
 
 html {
-	background-image: url("transparent.png") ;
-	background-size: cover;
-	overflow: hidden; 
-	font-family: arial, sans-serif;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+body {
+	background-color: rgba(255,255,255, 0.01);
 }
 
 #controllers {
