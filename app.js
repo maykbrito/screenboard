@@ -12,13 +12,12 @@ function createWindow () {
   win = new BrowserWindow({
     width: dimensions.width,
     height: dimensions.height,
-    transparent:true,
-    frame:false,
-    titleBarStyle: 'hidden'
-    // alwaysOnTop: true,
-    // webPreferences: {
-    //   nodeIntegration: true
-    // }
+    transparent: true,
+    frame: false,
+    titleBarStyle: 'hidden',
+    webPreferences: {
+      nodeIntegration: true
+    }
   })
 
   // and load the index.html of the app.
@@ -27,9 +26,12 @@ function createWindow () {
 
 
 function createShortcuts() {
-  const reopen = shortcuts.reopen || 'CmdOrCtrl+F12'
+  const { reopen = 'CmdOrCtrl+F12', clear = 'Cmd+Shift+C' } = shortcuts
+
   globalShortcut.register(reopen, recreateWindow)
+  globalShortcut.register(clear, () => win.webContents.send('clear'))
 }
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
