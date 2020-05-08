@@ -9,6 +9,21 @@ html {
     overflow: hidden;
 }
 
+body {
+    cursor: none;
+}
+
+#cursor {
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+}
+
+#controllers:hover ~ #cursor {
+    visibility: hidden;
+}
+
 #controllers {
     position: absolute;
     top: 20px;
