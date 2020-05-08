@@ -48,6 +48,85 @@ html {
     cursor: move;
 }
 
+
+#tools {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
 #board {
     border-top: 1px solid #7159c1;
+}
+
+
+
+input[type='color'] {
+    border: 0;
+    height: 2rem;
+    width: 3rem;
+    border-radius: 2px;
+    padding: 2px;
+    background-color: transparent;    
+}
+
+input[type='range'] {
+    -webkit-appearance: none;
+    height: 0.3rem;
+    border-radius: 5px;  
+    background: #7159c1;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%; 
+    background: #2e2352;
+    cursor: pointer;
+}
+
+input[type='range']::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #2e2352;
+    cursor: pointer;
+}
+
+
+
+input[type='radio']{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+input[type='radio'] + label {
+    border: 0;
+    height: 3rem;
+    width: 3rem;
+    border: transparent 2px solid;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type='radio'] + label svg {
+    height: 2.2rem;
+    min-width: 2.2rem;
+    fill: #7159c1;
+}
+
+input[type='radio']:checked + label svg {
+    fill: #2e2352;
 }
