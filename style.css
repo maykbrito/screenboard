@@ -9,6 +9,10 @@ html {
     overflow: hidden;
 }
 
+body {
+	background-color: rgba(255,255,255, 0.01);
+}
+
 #controllers {
     position: absolute;
     top: 20px;
