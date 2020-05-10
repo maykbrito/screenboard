@@ -2,6 +2,7 @@ const { app, BrowserWindow, screen, globalShortcut } = require('electron')
 const shortcuts = require('./shortcuts')
 
 let win = null
+app.allowRendererProcessReuse = true
 
 function createWindow () {
     const mainScreen = screen.getPrimaryDisplay();
@@ -11,13 +12,12 @@ function createWindow () {
   win = new BrowserWindow({
     width: dimensions.width,
     height: dimensions.height,
-    transparent:true,
-    frame:false,
-    titleBarStyle: 'hidden'
-    // alwaysOnTop: true,
-    // webPreferences: {
-    //   nodeIntegration: true
-    // }
+    transparent: true,
+    frame: false,
+    titleBarStyle: 'hidden',
+    webPreferences: {
+      nodeIntegration: true
+    }
   })
 
   // and load the index.html of the app.
@@ -26,11 +26,17 @@ function createWindow () {
 
 
 function createShortcuts() {
-  const reopen = shortcuts.reopen || 'CmdOrCtrl+F12'
+  const { 
+    reopen = 'CmdOrCtrl+F12', 
+    clear = 'CmdOrCtrl+Shift+C', 
+    minimize = 'CmdOrCtrl+F11'
+  } = shortcuts
+  
   globalShortcut.register(reopen, recreateWindow)
-  const minimaze = shortcuts.minimaze
-  globalShortcut.register(minimaze, minimazeWindow)
+  globalShortcut.register(minimize, minimizeWindow)
+  globalShortcut.register(clear, () => win.webContents.send('clear'))
 }
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
@@ -58,7 +64,7 @@ function recreateWindow() {
     }
 }
 
-function minimazeWindow(){
+function minimizeWindow(){
   if (win.isMaximized()) {
     win.minimize();
   }

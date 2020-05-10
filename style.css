@@ -21,18 +21,33 @@ html {
 
     display: flex;
     align-items: center;
+
+    z-index: 1;
 }
 
 #controllers input {
     margin-right: 8px;   
+    cursor: pointer;
 }
 
-#controllers input:last-child {
+#controllers label,
+#controllers label + input {
     margin-left: 8px;
     margin-right: 0px;
+    cursor: pointer;
+}
+
+#controllers .drag-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -1;
+    cursor: move;
 }
 
 #board {
     border-top: 1px solid #7159c1;
 }
-
