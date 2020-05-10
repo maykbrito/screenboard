@@ -1,3 +1,4 @@
 module.exports = {
-    reopen: "CmdOrCtrl+Shift+w"
+    reopen: 'CmdOrCtrl+Shift+w',
+    clear: 'Cmd+Shift+C'
 }
