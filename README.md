@@ -40,9 +40,7 @@ While it's running in your terminal, you can do a set of commands:
 | Functionality | MacOs | Windows | Linux | 
 | **Close** |  Cmd + w | Ctrl + w | Ctrl + w |
 | **Reopen** |  Cmd + Shift + w | Ctrl + Shift + w | Ctrl + Shift + w |
-| **Clear** |  Cmd + Shift + c | Ctrl + Shift + c | Ctrl + Shift + c |
-
-_You can also clear your screen with mouse wheel_
+| **Clear** |  Mouse Wheel | Mouse Wheel | Mouse Wheel |
 
 You can customize `your own shortcuts` in `./shortcuts.js` file.
 
