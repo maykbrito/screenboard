@@ -12,6 +12,16 @@ export function Board (canvas) {
     // setup controls
     const controls = new Controls(context)
 
+    // clear the canvas
+    canvas.addEventListener('wheel', clearCanvas);
+
+    function clearCanvas() { 
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        var w = canvas.width;
+        canvas.width = 1;
+        canvas.width = w;   
+    }
+
     init() // it will start here
 
     // it will start here
