@@ -8,14 +8,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+
     <div id="controllers">
         <input type="color" name="color" id="color" value="#FF0000">
         <input type="range" name="size" id="size" min="1" max="20">
         
-        <label for="eraser"> Erase?</label>
-        <input type="checkbox" name="eraser" id="eraser">
+        <div id="tools">
+            <input type="radio" name="tool" id="tool-1" class="tool" value="pencil" checked>
+            <label for="tool-1">
+                <svg width="64px" height="64px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12.938,42.498l8.446,8.429l25.339-25.288l-8.447-8.429L12.938,42.498z M7.998,55.84l11.258-2.806l-8.447-8.431 L7.998,55.84z M55.167,12.996l-4.224-4.215c-1.166-1.164-3.057-1.164-4.223,0l-6.334,6.322l8.446,8.429l6.334-6.322 C56.333,16.046,56.333,14.159,55.167,12.996z" />
+                </svg>
+            </label>
+
+
+            <input type="radio" name="tool" id="tool-2" class="tool" value="eraser">
+            <label for="tool-2">
+                <svg width="64px" height="64px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12.8786 2.70705C14.0502 1.53547 15.9497 1.53548 17.1213 2.70705L22.2928 7.87862C23.4644 9.0502 23.4644 10.9497 22.2928 12.1213L14.4142 19.9999H17.9999C18.5522 19.9999 18.9999 20.4477 18.9999 20.9999C18.9999 21.5522 18.5522 21.9999 17.9999 21.9999H5.99994C5.73473 21.9999 5.48037 21.8946 5.29284 21.7071L1.70705 18.1213C0.535474 16.9497 0.535477 15.0502 1.70705 13.8786L12.8786 2.70705ZM11.5857 19.9999L14.5857 16.9999L7.99994 10.4142L3.12126 15.2928C2.73074 15.6834 2.73074 16.3165 3.12126 16.707L6.41416 19.9999H11.5857ZM9.41416 8.99994L15.9999 15.5857L20.8786 10.707C21.2691 10.3165 21.2691 9.68336 20.8786 9.29284L15.707 4.12126C15.3165 3.73074 14.6834 3.73074 14.2928 4.12126L9.41416 8.99994Z" />
+                </svg>
+            </label>
+
+        </div>
+
+
     </div>
+
+    <div id="cursor"></div>
     <canvas id="board"></canvas>
+
 
     <script src="components/main.js" type="module"></script>
 </body>
