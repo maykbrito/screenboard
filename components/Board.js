@@ -58,6 +58,9 @@ export function Board (canvas) {
 
     // let's draw when press and moving pen
     function draw (event) {
+        // update controls
+        controls.updateAll()
+        
         // Am I drawning?
         if (!isDrawning) return;
 
@@ -68,8 +71,6 @@ export function Board (canvas) {
         // context.strokeStyle = 'red'
         context.lineCap = 'round'
 
-        // update controls
-        controls.updateAll()
 
 
         // drawning the line geting mouse position
