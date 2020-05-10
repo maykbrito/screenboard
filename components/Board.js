@@ -1,4 +1,5 @@
 import Controls from "./controls/index.js"
+const { ipcRenderer } = require("electron")
 
 export function Board (canvas) {
 
@@ -29,6 +30,8 @@ export function Board (canvas) {
         // when mouse moving
         canvas.addEventListener('mousemove', draw)
 
+        // when pressed Cmd+Shift+C
+        ipcRenderer.on('clear', clear)
     }
 
     // when change window size, resize canvas
@@ -77,6 +80,11 @@ export function Board (canvas) {
         // to get more round line
         context.beginPath()
         context.moveTo(event.clientX, event.clientY)
+    }
+
+    // clears the entire screen
+    function clear () {
+        context.clearRect(0, 0, canvas.width, canvas.height)
     }
 
 }
