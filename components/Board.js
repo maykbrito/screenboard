@@ -11,6 +11,16 @@ export function Board (canvas) {
     // setup controls
     const controls = new Controls(context)
 
+    // clear the canvas
+    canvas.addEventListener('wheel', clearCanvas);
+
+    function clearCanvas() { 
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        var w = canvas.width;
+        canvas.width = 1;
+        canvas.width = w;   
+    }
+
     init() // it will start here
 
     // it will start here
@@ -55,6 +65,9 @@ export function Board (canvas) {
 
     // let's draw when press and moving pen
     function draw (event) {
+        // update controls
+        controls.updateAll()
+        
         // Am I drawning?
         if (!isDrawning) return;
 
@@ -65,8 +78,6 @@ export function Board (canvas) {
         // context.strokeStyle = 'red'
         context.lineCap = 'round'
 
-        // update controls
-        controls.updateAll()
 
 
         // drawning the line geting mouse position
@@ -77,6 +88,11 @@ export function Board (canvas) {
         // to get more round line
         context.beginPath()
         context.moveTo(event.clientX, event.clientY)
+    }
+
+    // clears the entire screen
+    function clear () {
+        context.clearRect(0, 0, canvas.width, canvas.height)
     }
 
 }
