@@ -1,4 +1,4 @@
 module.exports = {
     reopen: 'CmdOrCtrl+Shift+w',
-    minimize: "CmdOrCtrl+F11",
+    hide: "CmdOrCtrl+Shift+H",
 }

@@ -28,13 +28,13 @@ function createWindow () {
 function createShortcuts() {
   const { 
     reopen = 'CmdOrCtrl+F12', 
-    minimize = 'CmdOrCtrl+F11',
+    hide = 'CmdOrCtrl+Shift+H',
   } = shortcuts
   
   globalShortcut.register(reopen, recreateWindow)
 
   // doesn't work on macOs
-  globalShortcut.register(minimize, minimizeWindow)
+  globalShortcut.register(hide, hideWindow)
 }
 
 // This method will be called when Electron has finished
@@ -64,14 +64,13 @@ function recreateWindow() {
     }
 }
 
-function minimizeWindow(){
-
-  // doesn't work on macOS
-  if (win.isMinimized()) {
-    return win.maximize();
+function hideWindow(){
+  if (win.isVisible()) {
+    win.hide();
   }
-
-  return win.minimize();
+  else {
+    win.show();
+  }
 }
 
 // In this file you can include the rest of your app's specific main process
