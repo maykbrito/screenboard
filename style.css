@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: roboto, sans-serif;
 }
 
 html {
@@ -11,8 +14,9 @@ html {
 
 body {
   background-color: rgba(255,255,255, 0.01);
-  cursor: none;
 }
+
+
 
 #cursor {
     border-radius: 50%;
@@ -72,9 +76,50 @@ body {
     align-items: center;
 }
 
+
+#settings {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    background-color: #7159c1;
+    padding: 20px;
+    color: white;
+}
+
+#settings header {
+    display: flex;    
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    padding-bottom: 0.5rem;
+}
+
+#settings header h3 {
+}
+
+#settings header svg {
+    cursor: pointer;
+}
+
+#settings main {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#settings main div.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
 #board {
     border-top: 1px solid #7159c1;
+    cursor: none;
 }
+
 
 input[type='color'] {
     border: 0;
@@ -144,3 +189,57 @@ input[type='radio'] + label svg {
 input[type='radio']:checked + label svg {
     fill: #2e2352;
 }
+
+
+
+
+
+label.switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 26px;
+}
+  
+label.switch input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+label.switch span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+  
+label.switch span:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+  
+label.switch input[type="checkbox"]:checked + span {
+    background-color: #2e2352;
+}
+
+label.switch input[type="checkbox"]:checked + span:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+  

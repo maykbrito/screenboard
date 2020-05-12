@@ -1,5 +1,6 @@
 import { Board } from './Board.js'
 import { Draggable } from './Draggable.js'
+import { Settings } from './Settings.js'
 
 window.addEventListener('load', () => {
     const canvas = document.querySelector('#board')
@@ -7,4 +8,5 @@ window.addEventListener('load', () => {
 
     new Board(canvas)
     new Draggable(controllers)
+    new Settings()
 })
