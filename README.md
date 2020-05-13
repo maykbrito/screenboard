@@ -61,10 +61,32 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 ## Contributors
 
-| | | | | |
-| :-: | :-: | :-: | :-: | :-: |
-| maykbrito | dioneijd | almirjakubaitis | cl4udino | thompsonemerson | |
-| <img width="50" src="https://avatars2.githubusercontent.com/u/6643122?s=460&u=1e9e1f04b76fb5374e6a041f5e41dce83f3b5d92&v=4"> | <img width="50" src="https://avatars3.githubusercontent.com/u/49819948?s=460&u=d4c758690cffa52953e05088e2573f4eb5beb1ec&v=4"> | <img width="50"  src="https://avatars1.githubusercontent.com/u/37607313?s=460&u=8f73273a92d2cee25f735928aa8de15d790488b9&v=4"> | <img width="50"  src="https://avatars0.githubusercontent.com/u/25092787?s=460&u=681798dbfbe65060587c6a9c204e0e8fe0c82c2e&v=4"> | <img width="50"  src="https://avatars0.githubusercontent.com/u/6743115?s=400&u=1d7f4332d6f68749708881bcba0cf240165ebab0&v=4"> | | 
+<table>
+  <tr>
+    <th>maykbrito</th>
+    <th>dioneijd</th>
+    <th>almirjakubaitis</th>
+    <th>cl4udino</th>
+    <th>thompsonemerson</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="50" src="https://avatars2.githubusercontent.com/u/6643122?s=460&u=1e9e1f04b76fb5374e6a041f5e41dce83f3b5d92&v=4">
+    </td>
+    <td align="center">
+      <img width="50" src="https://avatars3.githubusercontent.com/u/49819948?s=460&u=d4c758690cffa52953e05088e2573f4eb5beb1ec&v=4">
+    </td>
+    <td align="center">
+      <img width="50"  src="https://avatars1.githubusercontent.com/u/37607313?s=460&u=8f73273a92d2cee25f735928aa8de15d790488b9&v=4">
+    </td>
+    <td align="center">
+      <img width="50"  src="https://avatars0.githubusercontent.com/u/25092787?s=460&u=681798dbfbe65060587c6a9c204e0e8fe0c82c2e&v=4">
+    </td>
+    <td align="center">
+      <img width="50"  src="https://avatars0.githubusercontent.com/u/6743115?s=400&u=1d7f4332d6f68749708881bcba0cf240165ebab0&v=4">
+    </td>
+  </tr>
+</table>
 
 
 
