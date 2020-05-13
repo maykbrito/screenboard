@@ -16,6 +16,25 @@ body {
   background-color: rgba(255,255,255, 0.01);
 }
 
+#settingsVisible {
+    position: absolute;
+    display: none;
+}
+
+#settingsVisible:checked ~ #settings {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+}
+
+#settingsVisible:checked ~ #settings * {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#settingsVisible:not(:checked) ~ #controllers {
+    visibility: hidden;
+}
 
 
 #cursor {
@@ -25,9 +44,6 @@ body {
     z-index: -1;
 }
 
-#controllers:hover ~ #cursor {
-    visibility: hidden;
-}
 
 #controllers {
     position: absolute;
@@ -35,26 +51,26 @@ body {
     left: 0;
 
     background-color: rgba(255,255,255, 0.8);
+    
     padding:8px 16px;
 
+    border: 1px dashed #7159c1;
     border-radius: 6px;
-
-    display: flex;
-    align-items: center;
 
     z-index: 1;
 }
 
-#controllers input {
-    margin-right: 8px;   
-    cursor: pointer;
+#controllers:hover {
+    border: 1px solid #7159c1;
 }
 
-#controllers label,
-#controllers label + input {
-    margin-left: 8px;
-    margin-right: 0px;
-    cursor: pointer;
+#controllers:hover ~ #cursor {
+    visibility: hidden;
+}
+
+#controllers:hover #extraControllers {
+    height: 20px;
+    opacity: 100%;
 }
 
 #controllers .drag-area {
@@ -67,6 +83,72 @@ body {
     z-index: -1;
     cursor: move;
 }
+
+
+
+#basicControllers {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+
+#basicControllers input + * {
+    margin-right: 8px;   
+    cursor: pointer;
+}
+
+#basicControllers label,
+#basicControllers label + input {
+    margin-left: 8px;
+    margin-right: 0px;
+    cursor: pointer;
+}
+
+
+#extraControllers {
+    width: 100%;
+    height: 0;
+    opacity: 0%;
+    transition: height 0.3s 1s ease-in, opacity 0.3s 1s ease;
+
+    display: flex;
+    
+}
+
+#extraControllers div {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+#extraControllers div + div {
+    margin-left: 20px;
+}
+
+#extraControllers div label {
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#extraControllers div a {
+    text-decoration: none;
+    font-size: 12px;
+    text-align: center;
+}
+
+#extraControllers div a:visited {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+#extraControllers div svg {
+    height: 12px;
+    width: 12px;
+    margin-right: 3px;
+}
+
+
 
 
 #tools {
@@ -84,6 +166,7 @@ body {
     background-color: #7159c1;
     padding: 20px;
     color: white;
+    transition: 0.5s;
 }
 
 #settings header {
@@ -93,10 +176,8 @@ body {
     padding-bottom: 0.5rem;
 }
 
-#settings header h3 {
-}
 
-#settings header svg {
+#settings header label {
     cursor: pointer;
 }
 
@@ -111,6 +192,11 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height: 40px;
+}
+
+#settings main div.row p {
+    font-size: 12px;
 }
 
 
@@ -197,8 +283,8 @@ input[type='radio']:checked + label svg {
 label.switch {
     position: relative;
     display: inline-block;
-    width: 52px;
-    height: 26px;
+    width: 38px;
+    height: 20px;
 }
   
 label.switch input[type="checkbox"] {
@@ -223,10 +309,10 @@ label.switch span {
 label.switch span:before {
     position: absolute;
     content: "";
-    height: 18px;
-    width: 18px;
-    left: 4px;
-    bottom: 4px;
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -238,8 +324,8 @@ label.switch input[type="checkbox"]:checked + span {
 }
 
 label.switch input[type="checkbox"]:checked + span:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(22px);
+    -ms-transform: translateX(22px);
+    transform: translateX(18px);
 }
   
