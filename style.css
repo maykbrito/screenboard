@@ -84,7 +84,20 @@ body {
     cursor: move;
 }
 
+#controllers .drag-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: transparent;
+    z-index: -1;
+    cursor: move;
+}
 
+#controllers .drag-area:hover {
+    background-color: #7159c1;
+}
 
 #basicControllers {
     background-color: transparent;
