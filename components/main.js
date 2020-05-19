@@ -3,10 +3,17 @@ import { Draggable } from './Draggable.js'
 import { Settings } from './Settings.js'
 
 window.addEventListener('load', () => {
-    const canvas = document.querySelector('#board')
-    const controllers = document.querySelector('#controllers')
+    const canvas = document.querySelector('#board')   
+    const settings = new Settings()
 
-    new Board(canvas)
+    let state = {
+        canvas,
+        settings
+    }
+
+    new Board(state)
+
+    
+    const controllers = document.querySelector('#controllers')
     new Draggable(controllers)
-    new Settings()
 })

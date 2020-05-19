@@ -1,9 +1,9 @@
 import Controls from "./controls/index.js"
 
-export function Board (canvas) {
+export function Board (state) {
 
     // Working inside canvas, but it's a 2d or 3d context?
-    const context = canvas.getContext('2d')
+    const context = state.canvas.getContext('2d')
 
     // catch painting
     let isDrawning = false
@@ -11,15 +11,6 @@ export function Board (canvas) {
     // setup controls
     const controls = new Controls(context)
 
-    // clear the canvas
-    canvas.addEventListener('wheel', clearCanvas);
-
-    function clearCanvas() { 
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        var w = canvas.width;
-        canvas.width = 1;
-        canvas.width = w;   
-    }
 
     init() // it will start here
 
@@ -31,20 +22,23 @@ export function Board (canvas) {
         window.addEventListener('resize', resize)
 
         // when mouse down
-        canvas.addEventListener('mousedown', startPressPen)
+        state.canvas.addEventListener('mousedown', startPressPen)
 
         // when mouse up
-        canvas.addEventListener('mouseup', stopPressPen)
+        state.canvas.addEventListener('mouseup', stopPressPen)
 
         // when mouse moving
-        canvas.addEventListener('mousemove', draw)
+        state.canvas.addEventListener('mousemove', draw)
+        
+        // clear the canvas
+        state.canvas.addEventListener('wheel', clearCanvas);
 
     }
 
     // when change window size, resize canvas
     function resize() {
-        canvas.height = window.innerHeight
-        canvas.width = window.innerWidth
+        state.canvas.height = window.innerHeight
+        state.canvas.width = window.innerWidth
     }
 
     // When put pen on board and press to draw
@@ -69,16 +63,10 @@ export function Board (canvas) {
         controls.updateAll()
         
         // Am I drawning?
-        if (!isDrawning) return;
-
-        
+        if (!isDrawning) return;        
 
         // basic init style of line, in case of it's no control
-        // context.lineWidth = 5;
-        // context.strokeStyle = 'red'
         context.lineCap = 'round'
-
-
 
         // drawning the line geting mouse position
         context.lineTo(event.clientX, event.clientY)
@@ -90,9 +78,17 @@ export function Board (canvas) {
         context.moveTo(event.clientX, event.clientY)
     }
 
-    // clears the entire screen
-    function clear () {
-        context.clearRect(0, 0, canvas.width, canvas.height)
+    
+    // clear canvas fully
+    function clearCanvas() {
+        
+        if (state.settings.askToCleanAll) {
+            const msg = 'Are you sure you want to clear everthing?\r\n\r\nThis operation is irreversible.'
+            
+            if ( !confirm(msg) ) return
+        }
+
+        context.clearRect(0, 0, state.canvas.width, state.canvas.height);
     }
 
 }

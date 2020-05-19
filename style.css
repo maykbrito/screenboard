@@ -179,7 +179,9 @@ body {
     background-color: #7159c1;
     padding: 20px;
     color: white;
+    letter-spacing: 0.1rem;
     transition: 0.5s;
+    text-shadow: 1px 1px 1px #2e2352;
 }
 
 #settings header {
@@ -187,6 +189,10 @@ body {
     justify-content: space-between;
     border-bottom: 1px solid white;
     padding-bottom: 0.5rem;
+}
+
+#settings header h3 {
+    font-size: 1.5rem;
 }
 
 
@@ -200,12 +206,20 @@ body {
     flex-direction: column;
 }
 
+#settings main h5 {
+    margin-top: 20px;
+    font-weight: normal;
+    font-size: 14px;
+    padding-bottom: 8px;
+}
+
 #settings main div.row {
+    padding-left: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 40px;
+    height: 35px;
 }
 
 #settings main div.row p {
