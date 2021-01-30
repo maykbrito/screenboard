@@ -1,10 +1,6 @@
 const { app, BrowserWindow, screen, globalShortcut } = require('electron')
 const shortcuts = require('./shortcuts')
 
-try {
-  require('electron-reloader')(module)
-} catch (_) {}
-
 let win = null
 app.allowRendererProcessReuse = true
 
