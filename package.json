@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/maykbrito/screenboard#readme",
   "devDependencies": {
-    "electron": "^8.2.5"
+    "electron": "^8.2.5",
+    "electron-reloader": "^1.2.0"
   }
 }
