@@ -1,4 +1,5 @@
 import './third/simple-undo.js'
+import './third/mousetrap.min.js'
 import './Utils.js'
 import './DrawingBoard.js'
 import './controls/index.js'

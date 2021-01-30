@@ -1,3 +1,5 @@
+// based on https://github.com/Leimi/drawingboard.js
+
 import { EventS }  from './Utils.js';
 
 const defaultOpts = {
@@ -114,9 +116,9 @@ const CanvasMethods = {
 		this.setMode('pencil');
 
 		if (opts.background) {
-			this.resetBackground(this.opts.background, $.proxy(function() {
+			this.resetBackground(this.opts.background, function() {
 				if (opts.history) this.saveHistory();
-			}, this));
+			}.bind(this));
 		}
 
 		if (opts.color) this.setColor(opts.color);
@@ -124,7 +126,6 @@ const CanvasMethods = {
 
 		this.ctx.lineCap = "round";
 		this.ctx.lineJoin = "round";
-		// this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.width);
 
 		if (opts.webStorage) this.saveWebStorage();
 
@@ -150,10 +151,10 @@ const CanvasMethods = {
 			if (callback) callback();
 		} else if (background)
 			this.setImg(background, {
-				callback: $.proxy(function() {
+				callback: function() {
 					this.history.initialize(this.getImg());
 					if (callback) callback();
-				}, this)
+				}.bind(this)
 			});
 		this.setMode(prevMode);
 	},
@@ -365,12 +366,12 @@ const HistoryMethods = {
 	initHistory() {
 		this.history = new SimpleUndo({
 			maxLength: 30,
-			provider: $.proxy(function(done) {
+			provider: function(done) {
 				done(this.getImg());
-			}, this),
-			onUpdate: $.proxy(function() {
+			}.bind(this),
+			onUpdate: function() {
 				this.ev.trigger('historyNavigation');
-			}, this)
+			}.bind(this)
 		});
 	},
 
@@ -379,19 +380,23 @@ const HistoryMethods = {
 	},
 
 	restoreHistory(image) {
+		if (!image) {
+			this.reset({background: true})
+		}
+
 		this.setImg(image, {
-			callback: $.proxy(function() {
+			callback: function() {
 				this.saveWebStorage();
-			}, this)
+			}.bind(this) 
 		});
 	},
 
 	goBackInHistory() {
-		this.history.undo($.proxy(this.restoreHistory, this));
+		this.history.undo(this.restoreHistory.bind(this));
 	},
 
 	goForthInHistory() {
-		this.history.redo($.proxy(this.restoreHistory, this));
+		this.history.redo(this.restoreHistory.bind(this));
 	},
 }
 
@@ -402,7 +407,7 @@ const HistoryMethods = {
  */
 const ImageMethods = {
 	setImg(src, opts) {
-		opts = $.extend({
+		opts = Object.assign({
 			stretch: this.opts.stretchImg,
 			callback: null
 		}, opts);
@@ -448,7 +453,7 @@ const ImageMethods = {
 			e.preventDefault();
 		});
 
-		this.dom.$canvas.on('drop', $.proxy(this._onCanvasDrop, this));
+		this.dom.$canvas.on('drop', this._onCanvasDrop.bind(this));
 	},
 
 	_onCanvasDrop(e) {
@@ -458,15 +463,15 @@ const ImageMethods = {
 			return false;
 		var fr = new FileReader();
 		fr.readAsDataURL(files[0]);
-		fr.onload = $.proxy(function(ev) {
+		fr.onload = function(ev) {
 			this.setImg(ev.target.result, {
-				callback: $.proxy(function() {
+				callback: function() {
 					this.saveHistory();
-				}, this)
+				}.bind(this)
 			});
 			this.ev.trigger('board:imageDropped', ev.target.result);
 			this.ev.trigger('board:userAction');
-		}, this);
+		}.bind(this);
 	},
 }
 
@@ -506,15 +511,12 @@ const WebStorageMethods = {
  */
 const IOMethods = {
 	initMouseEvents() {
-		// if (!this.opts.mouse)
-		// 	return false;
-
 		this.dom.$canvas.on('contextmenu', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 		});
 
-		this.dom.$canvas.on('contextmenu', $.proxy(this._onCanvasRightClick, this));
+		this.dom.$canvas.on('contextmenu', this._onCanvasRightClick.bind(this));
 	},
 
 	_onCanvasRightClick(e) {
@@ -530,15 +532,17 @@ const IOMethods = {
 	},
 
 	initKeyboardEvents() {
-		document.addEventListener('keydown', $.proxy(this._onEscKey, this))
-	},
+		Mousetrap.bind('ctrl+backspace', function() {
+			this.reset({ background: true })
+		}.bind(this))
 
-	_onEscKey(e) {
-		e = e.originalEvent ? e.originalEvent : e;
+		Mousetrap.bind(['command+z', 'ctrl+z'], function(){
+			this.goBackInHistory()
+		}.bind(this))
 
-		if(e.key === 'Escape') {
+		Mousetrap.bind('esc', function(){
 			this.dom.$controls[0].classList.add('hide')
-		}
+		}.bind(this))
 	},
 
 	/**
@@ -546,12 +550,12 @@ const IOMethods = {
 	 */
 
 	initDrawEvents() {
-		this.isDrawing = false;
-		this.isMouseHovering = false;
-		this.coords = {};
-		this.coords.old = this.coords.current = this.coords.oldMid = { x: 0, y: 0 };
+		this.isDrawing = false
+		this.isMouseHovering = false
+		this.coords = {}
+		this.coords.old = this.coords.current = this.coords.oldMid = { x: 0, y: 0 }
 
-		this.dom.$canvas.on('mousedown touchstart', $.proxy(function(e) {
+		this.dom.$canvas.on('mousedown touchstart', function(e) {
 			const leftClick = e.button === 0
 			const isTouch = e.originalEvent.type === "touchstart"
 			const isOneFingerTouch = e.originalEvent.touches?.length === 1
@@ -560,36 +564,36 @@ const IOMethods = {
 				const hideControls = () => this.dom.$controls[0].classList.add('hide')
 				hideControls()
 
-				this._onInputStart(e, this._getInputCoords(e) );
+				this._onInputStart(e, this._getInputCoords(e) )
 			}
-		}, this));
+		}.bind(this))
 
-		this.dom.$canvas.on('mousemove touchmove', $.proxy(function(e) {
+		this.dom.$canvas.on('mousemove touchmove', function(e) {
 			this._onInputMove(e, this._getInputCoords(e) );
-		}, this));
+		}.bind(this))
 
-		this.dom.$canvas.on('mousemove', $.proxy(function(e) {
+		this.dom.$canvas.on('mousemove', function(e) {
 
-		}, this));
+		}.bind(this));
 
-		this.dom.$canvas.on('mouseup touchend', $.proxy(function(e) {
+		this.dom.$canvas.on('mouseup touchend', function(e) {
 			this._onInputStop(e, this._getInputCoords(e) );
-		}, this));
+		}.bind(this));
 
-		this.dom.$canvas.on('mouseover', $.proxy(function(e) {
+		this.dom.$canvas.on('mouseover', function(e) {
 			this._onMouseOver(e, this._getInputCoords(e) );
-		}, this));
+		}.bind(this));
 
-		this.dom.$canvas.on('mouseout', $.proxy(function(e) {
+		this.dom.$canvas.on('mouseout', function(e) {
 			this._onMouseOut(e, this._getInputCoords(e) );
 
-		}, this));
+		}.bind(this));
 
-		$('body').on('mouseup touchend', $.proxy(function(e) {
+		$('body').on('mouseup touchend', function(e) {
 			this.isDrawing = false;
-		}, this));
+		}.bind(this));
 
-		if (window.requestAnimationFrame) requestAnimationFrame( $.proxy(this.draw, this) );
+		if (window.requestAnimationFrame) requestAnimationFrame( this.draw.bind(this) );
 	},
 
 	_onInputStart(e, coords) {
@@ -686,7 +690,7 @@ const DrawingModesMethods = {
 		silent = silent || false;
 		newMode = newMode || 'pencil';
 
-		this.ev.unbind('board:startDrawing', $.proxy(this.fill, this));
+		this.ev.unbind('board:startDrawing', this.fill.bind(this));
 
 		if (this.opts.eraserColor === "transparent")
 			this.ctx.globalCompositeOperation = newMode === "eraser" ? "destination-out" : "source-over";
@@ -701,7 +705,7 @@ const DrawingModesMethods = {
 			}
 
 			if (newMode === "filler")
-				this.ev.bind('board:startDrawing', $.proxy(this.fill, this));
+				this.ev.bind('board:startDrawing', this.fill.bind(this));
 		}
 		this.mode = newMode;
 		if (!silent)

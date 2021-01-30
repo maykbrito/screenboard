@@ -13,7 +13,8 @@ DrawingBoard.Control.Navigation = DrawingBoard.Control.extend({
 
 		if (this.opts.back) {
 			let $back = this.$el.find('.drawing-board-control-navigation-back');
-			this.board.ev.bind('historyNavigation', $.proxy(this.updateBack, this, $back));
+			this.board.ev.bind('historyNavigation', this.updateBack.bind(this, $back));
+			
 			this.$el.on('click', '.drawing-board-control-navigation-back', function(e) {
 				this.board.goBackInHistory();
 				e.preventDefault();
@@ -24,7 +25,7 @@ DrawingBoard.Control.Navigation = DrawingBoard.Control.extend({
 
 		if (this.opts.forward) {
 			let $forward = this.$el.find('.drawing-board-control-navigation-forward');
-			this.board.ev.bind('historyNavigation', $.proxy(this.updateForward, this, $forward));
+			this.board.ev.bind('historyNavigation', this.updateForward.bind(this, $forward));
 			this.$el.on('click', '.drawing-board-control-navigation-forward', function(e) {
 				this.board.goForthInHistory();
 				e.preventDefault();

@@ -6,7 +6,7 @@ DrawingBoard.Control = function(drawingBoard, opts) {
 	if (this.name)
 		this.$el.addClass('drawing-board-control-' + this.name);
 
-	this.board.ev.bind('board:reset', $.proxy(this.onBoardReset, this));
+	this.board.ev.bind('board:reset', this.onBoardReset.bind(this));
 
 	this.initialize.apply(this, arguments);
 	return this;
