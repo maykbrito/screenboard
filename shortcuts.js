@@ -1,4 +1,3 @@
 module.exports = {
-    reopen: 'CmdOrCtrl+Shift+w',
-    minimize: "CmdOrCtrl+F11",
+    reopen: 'CmdOrCtrl+Shift+w'
 }

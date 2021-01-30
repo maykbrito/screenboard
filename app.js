@@ -26,14 +26,10 @@ function createWindow () {
 
 function createShortcuts() {
   const { 
-    reopen = 'CmdOrCtrl+F12', 
-    minimize = 'CmdOrCtrl+F11',
+    reopen = 'CmdOrCtrl+Shift+w',
   } = require('./shortcuts')
   
-  globalShortcut.register(reopen, recreateWindow)
-
-  // doesn't work on macOs
-  globalShortcut.register(minimize, minimizeWindow)
+  globalShortcut.register(reopen, WindowVisibility.toggle)
 }
 
 // This method will be called when Electron has finished
@@ -63,14 +59,28 @@ function recreateWindow() {
     }
 }
 
-function minimizeWindow(){
 
-  // doesn't work on macOS
-  if (win.isMinimized()) {
-    return win.maximize();
+/** 
+ *  
+ *  Toggle Window Visibility
+ *  in macOS we can use win.show() or win.hide() to toggle visibility.
+ * 
+ *  in Win and Linux we can use win.minimize() or win.maximize() to toggle visibility.
+ */
+
+const os = require('os')
+const isMacOS = os.platform() === 'darwin'
+
+const WindowVisibility = {
+  isVisible: true,
+  
+  toggle() {
+    const show = isMacOS ? 'show' : 'maximize'
+    const hide = isMacOS ? 'hide' : 'minimize'
+
+    this.isVisible ? win[hide]() : win[show]()
+    this.isVisible = !this.isVisible
   }
-
-  return win.minimize();
 }
 
 // In this file you can include the rest of your app's specific main process
