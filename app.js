@@ -14,7 +14,7 @@ function createWindow () {
     height: dimensions.height,
     transparent: true,
     frame: false,
-    titleBarStyle: 'hidden',
+    titleBarStyle: 'customButtonsOnHover',
     webPreferences: {
       nodeIntegration: true
     }
