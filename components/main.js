@@ -1,10 +1,16 @@
-import { Board } from './Board.js'
-import { Draggable } from './Draggable.js'
-
-window.addEventListener('load', () => {
-    const canvas = document.querySelector('#board')
-    const controllers = document.querySelector('#controllers')
-
-    new Board(canvas)
-    new Draggable(controllers)
-})
+new DrawingBoard.Board('board', {
+    controls: [
+        'Color',
+        { Size: { type: "range" } },
+        { DrawingMode: { filler: false } },
+        'Navigation',
+        'Download'
+    ],
+    color: '#FDFD1F',
+    background: false,
+    size: 5,
+    webStorage: 'session',
+    enlargeYourContainer: false,
+    droppable: true, //try dropping an image on the canvas!
+    stretchImg: true //the dropped image can be automatically ugly resized to to take the canvas size
+});
