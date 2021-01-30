@@ -1,5 +1,4 @@
 const { app, BrowserWindow, screen, globalShortcut } = require('electron')
-const shortcuts = require('./shortcuts')
 
 let win = null
 app.allowRendererProcessReuse = true
@@ -29,7 +28,7 @@ function createShortcuts() {
   const { 
     reopen = 'CmdOrCtrl+F12', 
     minimize = 'CmdOrCtrl+F11',
-  } = shortcuts
+  } = require('./shortcuts')
   
   globalShortcut.register(reopen, recreateWindow)
 
