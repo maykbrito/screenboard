@@ -1,3 +1,16 @@
+DrawingBoard.Control.Size = DrawingBoard.Control.extend({
+
+	name: 'size',
+
+	defaults: {
+		type: "auto",
+		dropdownValues: [1, 3, 6, 10, 20, 30, 40, 50],
+		min: 1,
+		max: 50
+	},
+
+	types: ['dropdown', 'range'],
+
 	initialize() {
 		const hasType = this.types.includes(this.opts.type) 
 

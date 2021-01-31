@@ -1,0 +1,6 @@
+import './Control.js'
+import './Color.js'
+import './DrawingMode.js'
+import './Navigation.js'
+import './Size.js'
+import './Download.js'

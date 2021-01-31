@@ -1,14 +1,11 @@
 {
   "name": "screenboard",
-<<<<<<< HEAD
-  "version": "1.0.5",
-=======
   "version": "2.0.1",
->>>>>>> fa0927b... update version
   "description": "👨🏾‍🏫 It's a overlay blackboard on your screen",
   "main": "app.js",
   "scripts": {
-    "start": "electron app.js"
+    "start": "electron app.js",
+    "build": "npx electron-packager . --icon public/img/screwdriver.icns --out=packages"
   },
   "repository": {
     "type": "git",

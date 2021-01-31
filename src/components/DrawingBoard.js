@@ -1,6 +1,7 @@
 // based on https://github.com/Leimi/drawingboard.js
 
 import { EventS }  from './Utils.js';
+import '../shortcuts.js';
 
 const defaultOpts = {
 	controls: ['Color', 'DrawingMode', 'Size', 'Navigation'],
@@ -52,7 +53,13 @@ function setup(id, opts) {
 	if (!this.$el.length)
 		return false;
 
-	let tpl = '<div class="drawing-board-canvas-wrapper"></canvas><canvas class="drawing-board-canvas"></canvas><div class="drawing-board-cursor drawing-board-utils-hidden"></div></div><div class="drawing-board-controls hide"></div>';
+	const borderColor = `border-color:${this.opts.borderColor}` || ""
+	let tpl = `<div class="drawing-board-canvas-wrapper" style="${borderColor}">
+	<canvas class="drawing-board-canvas">
+	</canvas>
+	<div class="drawing-board-cursor drawing-board-utils-hidden">
+	</div>
+	</div><div class="drawing-board-controls hide"></div>`;
 
 	this.$el.addClass('drawing-board').append(tpl);
 	
@@ -532,17 +539,25 @@ const IOMethods = {
 	},
 
 	initKeyboardEvents() {
-		Mousetrap.bind('ctrl+backspace', function() {
+ 
+		const { redo, undo, clear, toggleOptions } = window.shortcuts
+
+		Mousetrap.bind(clear, function() {
 			this.reset({ background: true })
 		}.bind(this))
 
-		Mousetrap.bind(['command+z', 'ctrl+z'], function(){
+		Mousetrap.bind(undo, function() {
 			this.goBackInHistory()
 		}.bind(this))
 
-		Mousetrap.bind('esc', function(){
-			this.dom.$controls[0].classList.add('hide')
+		Mousetrap.bind(redo, function() {
+			this.goForthInHistory()
 		}.bind(this))
+
+		Mousetrap.bind(toggleOptions, function() {
+			this.dom.$controls[0].classList.toggle('hide')
+		}.bind(this))
+
 	},
 
 	/**

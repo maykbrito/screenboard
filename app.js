@@ -20,14 +20,16 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  win.loadFile('index.html')
+  win.loadFile('public/index.html')
+
+  // win.webContents.toggleDevTools()
 }
 
 
 function createShortcuts() {
   const { 
-    reopen = 'CmdOrCtrl+Shift+w',
-  } = require('./shortcuts')
+    reopen = 'Alt+Shift+w',
+  } = require('./src/shortcuts')
   
   globalShortcut.register(reopen, WindowVisibility.toggle)
 }
@@ -67,18 +69,16 @@ function recreateWindow() {
  * 
  *  in Win and Linux we can use win.minimize() or win.maximize() to toggle visibility.
  */
-
-const os = require('os')
-const isMacOS = os.platform() === 'darwin'
+const isMacOS = process.platform === 'darwin'
 
 const WindowVisibility = {
   isVisible: true,
   
   toggle() {
-    const show = isMacOS ? 'show' : 'maximize'
-    const hide = isMacOS ? 'hide' : 'minimize'
+    const show = isMacOS ? () => recreateWindow() : () =>  win.maximize()
+    const hide = isMacOS ? () => win.close() : () => win.minimize()
 
-    this.isVisible ? win[hide]() : win[show]()
+    this.isVisible ? show() : hide()
     this.isVisible = !this.isVisible
   }
 }

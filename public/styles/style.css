@@ -1,0 +1,384 @@
+:root {
+    /* rocketseat purple: #8257e6
+    --board-controls-color:#8257e6ee;;
+    --button-border-color: #8257e6aa;
+    --button-color:#8257e6aa;
+    --button-hover-color: #7049cc;*/
+
+    --board-controls-color:#111111ee;;
+    --button-border-color: #111111aa;
+    --button-color:#111111aa;
+    --button-hover-color: #333333cc;
+}
+
+*,button,
+input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: transparent;
+    overflow: hidden;
+}
+
+body {
+    background-color: rgba(255, 255, 255, 0.001);
+    cursor: none;
+}
+
+html,
+body {
+    height: 100vh;
+}
+
+.drawing-board,
+.drawing-board * {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.drawing-board-utils-hidden,
+.drawing-board-controls-hidden {
+    display: none !important;
+}
+
+.drawing-board {
+    position: relative;
+    display: block;
+}
+
+.drawing-board-canvas-wrapper {
+    position: relative;
+    margin: 0;
+    border: 1px solid ;
+}
+
+.drawing-board-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: auto;
+}
+
+.drawing-board-canvas {
+    cursor: crosshair;
+    z-index: 20;
+}
+
+.drawing-board-cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    background: #ccc;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 30;
+}
+
+.drawing-board-control > button,
+.drawing-board-control-colors-rainbows,
+.drawing-board-control-size .drawing-board-control-inner,
+.drawing-board-control-size-dropdown {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: none;
+    background-color: var(--button-color);
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: white;
+    height: 28px;
+}
+
+.drawing-board-control > button {
+    cursor: pointer;
+    min-width: 28px;
+    line-height: 14px;
+    fill:#ffffff;
+    color: #ffffff;
+}
+
+.drawing-board-control > button:hover,
+.drawing-board-control > button:focus {
+    background-color:var(--button-hover-color);
+}
+.drawing-board-control > button:active,
+.drawing-board-control > button.active {
+    box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    background-color:var(--button-hover-color);
+}
+.drawing-board-control > button[disabled] {
+    color: gray;
+}
+.drawing-board-control > button[disabled]:hover,
+.drawing-board-control > button[disabled]:focus,
+.drawing-board-control > button[disabled]:active,
+.drawing-board-control > button[disabled].active {
+    background-color: var(--button-hover-color);
+    cursor: default;
+}
+
+.drawing-board-controls {
+    position: absolute;
+    min-height: 28px;
+    z-index: 99999;
+    background:var(--board-controls-color);
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.drawing-board-controls.hide {
+    display: none;
+}
+
+.drawing-board-controls[data-align="left"] {
+    margin: 0;
+    left: -9.33333px;
+}
+.drawing-board-controls[data-align="right"] {
+    margin: 0 0 0 auto;
+    right: -9.33333px;
+}
+
+.drawing-board-controls-hidden {
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.drawing-board-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    height: 100%;
+}
+
+.drawing-board-control-inner {
+    display: flex;
+    position: relative;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.drawing-board-control > button {
+    margin: 0;
+    vertical-align: middle;
+}
+
+.drawing-board-control-colors {
+    font-size: 0;
+    line-height: 0;
+}
+
+.drawing-board-control-colors-current {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+}
+
+.drawing-board-control-colors-rainbows {
+    display: inline-block;
+    position: absolute;
+    left: -3px;
+    top: 32px;
+    margin-left: 0;
+    z-index: 100;
+    width: 284px;
+    height: auto;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.drawing-board-control-colors-rainbow {
+    height: 20px;
+}
+
+.drawing-board-control-colors-picker:first-child {
+    margin-right: 5px;
+}
+
+.drawing-board-control-colors-picker {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.drawing-board-control-colors-picker[data-color="rgba(255, 255, 255, 1)"] {
+    width: 18px;
+    height: 19px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+
+.drawing-board-control-colors-picker:hover {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #555;
+}
+
+.drawing-board-control-drawingmode > button {
+    margin-right: 2px;
+}
+
+.drawing-board-control-drawingmode > button:last-child {
+    margin-right: 0;
+}
+
+.drawing-board-control-drawingmode-pencil-button {
+    overflow: hidden;
+    text-indent: -9999px;
+    background-image: url("../img/pencil.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.drawing-board-control-drawingmode-pencil-button:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+}
+
+.drawing-board-control-drawingmode-eraser-button {
+    overflow: hidden;
+    *text-indent: -9999px;
+    background-image: url("../img/eraser.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.drawing-board-control-drawingmode-eraser-button:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+}
+
+.drawing-board-control-drawingmode-filler-button {
+    overflow: hidden;
+    *text-indent: -9999px;
+    background-image: url("../img/bucket.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.drawing-board-control-drawingmode-filler-button:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+}
+
+.drawing-board-control-navigation > button {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.drawing-board-control-navigation > button:last-child {
+    margin-right: 0;
+}
+
+.drawing-board-control-size[data-drawing-board-type="range"]
+    .drawing-board-control-inner {
+    width: 75px;
+}
+.drawing-board-control-size[data-drawing-board-type="dropdown"]
+    .drawing-board-control-inner {
+    overflow: visible;
+}
+
+.drawing-board-control-size-range-input {
+    position: relative;
+    width: 100%;
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.drawing-board-control-size-range-current,
+.drawing-board-control-size-dropdown-current span,
+.drawing-board-control-size-dropdown span {
+    display: block;
+    background: #333;
+    opacity: 0.8;
+}
+
+.drawing-board-control-size-range-current {
+    display: inline-block;
+    opacity: 0.15;
+    position: absolute;
+    pointer-events: none;
+    left: 50%;
+    top: 50%;
+    z-index: 50;
+}
+
+.drawing-board-control-size-dropdown-current {
+    display: block;
+    height: 100%;
+    width: 40px;
+    overflow: hidden;
+    position: relative;
+}
+.drawing-board-control-size-dropdown-current span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+.drawing-board-control-size-dropdown {
+    position: absolute;
+    left: -6px;
+    top: 33px;
+    height: auto;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+}
+.drawing-board-control-size-dropdown li {
+    display: block;
+    padding: 4px;
+    margin: 3px 0;
+    min-height: 16px;
+}
+.drawing-board-control-size-dropdown li:hover {
+    background: #ccc;
+}
+.drawing-board-control-size-dropdown span {
+    margin: 0 auto;
+}
+
+.drawing-board-control-download-button {
+    background-image: url("../img/download.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+.drawing-board-control-download-button svg path {
+  fill: white;
+  color: white;
+}
+
+#board {
+    width: 100vw;
+    height: 100vh;
+}
