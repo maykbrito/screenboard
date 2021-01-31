@@ -13,7 +13,7 @@
 
 > 👨🏾‍🏫 It's a overlay blackboard on your screen
 
-📹 Small (and old) presentation video https://youtu.be/xF7OLhD03vo
+📹 Small presentation about this project https://youtu.be/2b0LOd9xigA
 
 ### 🏠 [Homepage](https://github.com/maykbrito/screenboard#readme)
 
