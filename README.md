@@ -85,6 +85,7 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 ## 🧪 Tested in
 
 - MacOS
+- Windows(by @davidlpc1)
 
 ## ✨ Show your support
 
