@@ -12,12 +12,20 @@ if (typeof window != 'undefined') {
         redo: 'mod+y',
         clear: 'mod+backspace',
         toggleOptions: 'esc',
+        modes: {
+            pencil:"w",
+            eraser:"e"
+        },
+        size: {
+            increase: "d",
+            decrease: "s",
+        },
         colors: {
-             r: '#FF0000',
-             g: '#00FF00',
-             b: '#0000FF',
-             y: '#FDFD1F',
-             a: '#000000'
+             '#FF0000': "r", // red
+             '#00FF00': "g", // green
+             '#0000FF': "b", // blue
+             '#FDFD1F': "y", // yellow
+             '#000000': "a" //black
         }
     }
 }
