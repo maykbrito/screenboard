@@ -42,14 +42,19 @@ It will give to you an file ate ./packages directory
 
 While it's running in your terminal, you can do a set of commands:
 
-|                     |                          |
-| -:                  | :-                       |
-| Functionality       | Keyboard Shortcut        |
-| **Toggle Window**   | Alt + Shift + w          |
-| **Undo**            | Cmd or Ctrl + z          |
-| **Redo**            | Cmd or Ctrl + y          |
-| **Clear**           | Cmd or Ctrl + backspace  |
-| **Toggle Options**  | Esc                      |
+|                       |                          |
+| -:                    | :-                       |
+| Functionality         | Keyboard Shortcut        |
+| **Toggle Window**     | Alt + Shift + w          |
+| **Undo**              | Cmd or Ctrl + z          |
+| **Redo**              | Cmd or Ctrl + y          |
+| **Clear**             | Cmd or Ctrl + backspace  |
+| **Toggle Options**    | Esc                      |
+| **Select Pencil**     | w                        |
+| **Select Eraser**     | e                        |
+| **Increase pen size** | d                        |
+| **Decrease pen size** | s                        |
+| **Select colors**     | r (red), g (green), b(blue), y(yellow), a(black)                      |
 
 You can customize `your own shortcuts` in `./src/shortcuts.js` file.
 
