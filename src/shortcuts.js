@@ -12,5 +12,12 @@ if (typeof window != 'undefined') {
         redo: 'mod+y',
         clear: 'mod+backspace',
         toggleOptions: 'esc',
+        colors: {
+             r: '#FF0000',
+             g: '#00FF00',
+             b: '#0000FF',
+             y: '#FDFD1F',
+             a: '#000000'
+        }
     }
 }

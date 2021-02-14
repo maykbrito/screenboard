@@ -26,7 +26,6 @@ export default {
         'Navigation',
         'Download'
     ],
-    color: '#FDFD1F', // pencil color
     background: false,
     borderColor: 'transparent', // window border color: Omni Green > '#67e480'
     size: 5,

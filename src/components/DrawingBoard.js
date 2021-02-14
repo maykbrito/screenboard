@@ -540,7 +540,7 @@ const IOMethods = {
 
 	initKeyboardEvents() {
  
-		const { redo, undo, clear, toggleOptions } = window.shortcuts
+		const { redo, undo, clear, toggleOptions, colors } = window.shortcuts
 
 		Mousetrap.bind(clear, function() {
 			this.reset({ background: true })
@@ -557,6 +557,17 @@ const IOMethods = {
 		Mousetrap.bind(toggleOptions, function() {
 			this.dom.$controls[0].classList.toggle('hide')
 		}.bind(this))
+
+		// Choose color
+
+		const that = this;
+		Object.keys(colors).forEach( color  => {
+			Mousetrap.bind(color, function() {
+				this.setColor(colors[color]);
+			}.bind(that))
+		})
+
+		
 
 	},
 
