@@ -13,7 +13,7 @@
 
 > 👨🏾‍🏫 It's a overlay blackboard on your screen
 
-📹 Small (and old) presentation video https://youtu.be/xF7OLhD03vo
+📹 Small presentation about this project https://youtu.be/Hg791q4cGoI
 
 ### 🏠 [Homepage](https://github.com/maykbrito/screenboard#readme)
 
@@ -85,6 +85,7 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 ## 🧪 Tested in
 
 - MacOS
+- Windows(by @davidlpc1)
 
 ## ✨ Show your support
 
