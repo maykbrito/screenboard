@@ -1,15 +1,15 @@
 {
   "name": "screenboard",
-  "version": "2.0.1",
+  "version": "3.0.1",
   "description": "👨🏾‍🏫 It's a overlay blackboard on your screen",
   "main": "app.js",
   "scripts": {
     "start": "electron app.js",
-    "build": "npx electron-packager . --icon public/img/screwdriver.icns --out=packages"
+    "build": "electron-packager . --icon assets/pen --overwrite --out=packages"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maykbrito/screenboard.git"
+    "url": "git+https://github.com/maykbrito/.git"
   },
   "keywords": [
     "screen",
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/maykbrito/screenboard#readme",
   "devDependencies": {
-    "electron": "^8.2.5"
+    "electron": "^12.0.5",
+    "electron-packager": "^15.2.0"
   }
 }
