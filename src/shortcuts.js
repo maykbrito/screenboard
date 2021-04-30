@@ -24,8 +24,11 @@ if (typeof window != 'undefined') {
              '#FF0000': "r", // red
              '#00FF00': "g", // green
              '#0000FF': "b", // blue
-             '#FDFD1F': "y", // yellow
-             '#000000': "a" //black
+             '#00FFFF': "c", // cyan
+             '#FF00FF': "m", // magenta
+             '#FFFF00': "y", // yellow
+             '#000000': "k", //black
+             '#FFFFFF': "f" //white
         }
     }
 }

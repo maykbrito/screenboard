@@ -1,4 +1,4 @@
-<h1 align="center">👨🏾‍🏫 Screenboard V3 👨🏾‍</h1>
+<h1 align="center">👨🏾‍🏫 Screenboard 👨🏾‍</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   
@@ -53,7 +53,7 @@ While it's running in your terminal, you can do a set of commands:
 | **Select Eraser**     | e                        |
 | **Increase pen size** | d                        |
 | **Decrease pen size** | s                        |
-| **Select colors**     | r (red), g (green), b(blue), y(yellow), a(black)                      |
+| **Select colors**     | r (red), g (green), b (blue), c (cyan), m (magenta), y (yellow), k (black)                      |
 
 You can customize `your own shortcuts` in `./src/shortcuts.js` file.
 
@@ -84,7 +84,7 @@ And lot of code from:
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/maykbrito/screenboard/issues). You can also take a look at the [contributing guide](https://github.com/maykbrito/screenboard/blob/master/CONTRIBUTING.md).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/maykbrito/screenboard/issues).
 
 ## 🧪 Tested in
 
