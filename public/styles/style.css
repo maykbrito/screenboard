@@ -65,7 +65,7 @@ body {
 }
 
 .drawing-board-canvas {
-    cursor: crosshair;
+    cursor: url('../img/cursor.svg') 0 24, crosshair;
     z-index: 20;
 }
 

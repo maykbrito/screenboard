@@ -13,7 +13,7 @@
 
 > 👨🏾‍🏫 It's a overlay blackboard on your screen
 
-📹 Small (and old) presentation video https://youtu.be/xF7OLhD03vo
+📹 Small presentation about this project https://youtu.be/Hg791q4cGoI
 
 ### 🏠 [Homepage](https://github.com/maykbrito/screenboard#readme)
 
@@ -42,13 +42,18 @@ It will give to you an file ate ./packages directory
 
 While it's running in your terminal, you can do a set of commands:
 
-| Functionality       | Keyboard Shortcut        |
-| -:                  | :-                       |
-| **Toggle Window**   | Alt + Shift + w          |
-| **Undo**            | Cmd or Ctrl + z          |
-| **Redo**            | Cmd or Ctrl + y          |
-| **Clear**           | Cmd or Ctrl + backspace  |
-| **Toggle Options**  | Esc                      |
+| Functionality         | Keyboard Shortcut        |
+| -:                    | :-                       |
+| **Toggle Window**     | Alt + Shift + w          |
+| **Undo**              | Cmd or Ctrl + z          |
+| **Redo**              | Cmd or Ctrl + y          |
+| **Clear**             | Cmd or Ctrl + backspace  |
+| **Toggle Options**    | Esc                      |
+| **Select Pencil**     | w                        |
+| **Select Eraser**     | e                        |
+| **Increase pen size** | d                        |
+| **Decrease pen size** | s                        |
+| **Select colors**     | r (red), g (green), b(blue), y(yellow), a(black)                      |
 
 You can customize `your own shortcuts` in `./src/shortcuts.js` file.
 
@@ -84,6 +89,7 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 ## 🧪 Tested in
 
 - MacOS
+- Windows(by @davidlpc1)
 
 ## ✨ Show your support
 
