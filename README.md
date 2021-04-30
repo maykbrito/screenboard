@@ -42,9 +42,8 @@ It will give to you an file ate ./packages directory
 
 While it's running in your terminal, you can do a set of commands:
 
-|                     |                          |
-| -:                  | :-                       |
 | Functionality       | Keyboard Shortcut        |
+| -:                  | :-                       |
 | **Toggle Window**   | Alt + Shift + w          |
 | **Undo**            | Cmd or Ctrl + z          |
 | **Redo**            | Cmd or Ctrl + y          |
