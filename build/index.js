@@ -24,11 +24,10 @@ function createWindow() {
     // Keep the window on all workspaces
     win.setVisibleOnAllWorkspaces(true);
     // and load the index.html of the app.
-    win.loadFile('public/index.html');
-    // win.webContents.toggleDevTools()
+    win.loadFile('src/renderer/index.html');
 }
 function createShortcuts() {
-    const { reopen = 'Alt+Shift+w' } = require('../src/shortcuts');
+    const { reopen = 'Alt+Shift+w' } = require('../src/shortcuts.js');
     electron_1.globalShortcut.register(reopen, WindowVisibility.toggle);
 }
 // This method will be called when Electron has finished

@@ -27,13 +27,11 @@ function createWindow() {
   win.setVisibleOnAllWorkspaces(true) 
 
   // and load the index.html of the app.
-  win.loadFile('public/index.html')
-
-  // win.webContents.toggleDevTools()
+  win.loadFile('src/renderer/index.html')
 }
 
 function createShortcuts() {
-  const { reopen = 'Alt+Shift+w' } = require('../src/shortcuts')
+  const { reopen = 'Alt+Shift+w' } = require('../src/shortcuts.js')
 
   globalShortcut.register(reopen, WindowVisibility.toggle)
 }

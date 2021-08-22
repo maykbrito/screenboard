@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "start": "yarn compile && electron .",
-    "compile": "tsc && cp public/index.html build/",
+    "compile": "tsc && cp src/renderer/index.html build/",
     "build": "electron-packager . --icon assets/screenboard --overwrite --out=packages"
   },
   "repository": {
