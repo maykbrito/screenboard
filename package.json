@@ -2,9 +2,10 @@
   "name": "screenboard",
   "version": "3.0.3",
   "description": "👨🏾‍🏫 It's a overlay blackboard on your screen",
-  "main": "app.js",
+  "main": "build/index.js",
   "scripts": {
-    "start": "electron app.js",
+    "start": "yarn compile && electron .",
+    "compile": "tsc && cp public/index.html build/",
     "build": "electron-packager . --icon assets/screenboard --overwrite --out=packages"
   },
   "repository": {
@@ -27,7 +28,10 @@
   },
   "homepage": "https://github.com/maykbrito/screenboard#readme",
   "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "@types/node": "^15.12.2",
     "electron": "^12.0.5",
-    "electron-packager": "^15.2.0"
+    "electron-packager": "^15.2.0",
+    "typescript": "^4.3.2"
   }
 }
