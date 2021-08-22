@@ -1,7 +1,7 @@
 // based on https://github.com/Leimi/drawingboard.js
 
 import { EventS } from "./Utils.js";
-import "../shortcuts.js";
+import "../../shortcuts.js";
 
 const defaultOpts = {
     controls: ["Color", "DrawingMode", "Size", "Navigation"],
