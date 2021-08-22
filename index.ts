@@ -15,6 +15,7 @@ function createWindow() {
     frame: false,
     titleBarStyle: 'customButtonsOnHover',
     alwaysOnTop: true,
+    hasShadow: false,
     webPreferences: {
       nodeIntegration: true
     }
