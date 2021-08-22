@@ -20,6 +20,11 @@ function createWindow() {
     }
   })
 
+  // Allows the window stay on top of all other windows
+  win.setAlwaysOnTop(true, "screen-saver")
+  // Keep the window on all workspaces
+  win.setVisibleOnAllWorkspaces(true) 
+
   // and load the index.html of the app.
   win.loadFile('public/index.html')
 
