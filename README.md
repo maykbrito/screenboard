@@ -39,7 +39,7 @@ If you want to use it as an app for your platform run
 npm run build
 ```
 
-It will give to you an file ate ./packages directory
+It will give to you a file at ./packages directory
 
 ## ⌨️ Shortcuts
 
