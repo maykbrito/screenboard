@@ -14,7 +14,7 @@
   </a>
 </p>
 
-> 👨🏾‍🏫 It's a overlay blackboard on your screen
+> 👨🏾‍🏫 It's an overlay blackboard on your screen
 
 📹 Small presentation about this project https://youtu.be/tq-pzpaqn5Q
 
