@@ -36,12 +36,19 @@ function createShortcuts() {
   globalShortcut.register(reopen, WindowVisibility.toggle)
 }
 
+// To enable transparency on Linux
+if(process.platform === "linux") {
+  app.commandLine.appendSwitch('enable-transparent-visuals');
+  app.disableHardwareAcceleration();
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app
   .whenReady()
-  .then(() => setTimeout(createWindow, 200))
+  .then(() => {})
+  .then(() => setTimeout(createWindow, 400))
   .then(createShortcuts)
 
 // Quit when all windows are closed.
@@ -59,7 +66,7 @@ function recreateWindow() {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
-    setTimeout(createWindow, 200)
+    setTimeout(createWindow, 400)
   }
 }
 
