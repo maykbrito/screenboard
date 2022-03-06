@@ -30,6 +30,11 @@ function createShortcuts() {
     const { reopen = 'Alt+Shift+w' } = require('../src/shortcuts.js');
     electron_1.globalShortcut.register(reopen, WindowVisibility.toggle);
 }
+// To enable transparency on Linux
+if (process.platform === "linux") {
+    electron_1.app.commandLine.appendSwitch('enable-transparent-visuals');
+    electron_1.app.disableHardwareAcceleration();
+}
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.

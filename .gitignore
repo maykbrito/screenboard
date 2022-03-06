@@ -2,3 +2,4 @@ node_modules/
 screenboard-darwin-x64/
 packages/
 .DS_Store
+**/*.log

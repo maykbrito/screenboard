@@ -9,8 +9,9 @@ function createWindow() {
 
   // Create the browser window.
   win = new BrowserWindow({
-    width: dimensions.width,
-    height: dimensions.height,
+    // Trick to be transparent on win10/11
+    width: dimensions.width-1,
+    height: dimensions.height-1,
     transparent: true,
     frame: false,
     titleBarStyle: 'customButtonsOnHover',
@@ -34,6 +35,12 @@ function createShortcuts() {
   const { reopen = 'Alt+Shift+w' } = require('../src/shortcuts.js')
 
   globalShortcut.register(reopen, WindowVisibility.toggle)
+}
+
+// To enable transparency on Linux
+if(process.platform === "linux") {
+  app.commandLine.appendSwitch('enable-transparent-visuals');
+  app.disableHardwareAcceleration();
 }
 
 // This method will be called when Electron has finished
