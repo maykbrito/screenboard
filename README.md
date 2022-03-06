@@ -101,8 +101,8 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 ## 🧪 Tested in
 
 - MacOS
-- Linux \[Ubuntu 20.04.4 LTS\](by @rrogovski)
-- Windows 10/11 (by @davidlpc1 / @rrogovski)
+- Linux \[Ubuntu 20.04.4 LTS\](by [@rrogovski](https://github.com/rrogovski))
+- Windows 10/11 (by [@davidlpc1](https://github.com/davidlpc1) / [@rrogovski](https://github.com/rrogovski))
 
 ## ✨ Show your support
 
