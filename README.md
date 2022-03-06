@@ -60,6 +60,15 @@ While it's running in your terminal, you can do a set of commands:
 
 You can customize `your own shortcuts` in `./src/shortcuts.js` file.
 
+## 😢 Limitations
+
+There are some limitations about the transparency on Electron. You can check out [here](https://www.electronjs.org/docs/latest/tutorial/window-customization#limitations).
+
+On Windows OS:
+
+* Transparent windows will not work when DWM is disabled.
+* Transparent windows can not be maximized using the Windows system menu or by double clicking the title bar. The reasoning behind this can be seen on PR [#28207](https://github.com/electron/electron/pull/28207).
+
 ---
 
 ## 🕵🏾‍♂️ Inspiration ...
@@ -92,7 +101,8 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 ## 🧪 Tested in
 
 - MacOS
-- Windows(by @davidlpc1)
+- Linux \[Ubuntu 20.04.4 LTS\](by @rrogovski)
+- Windows 10/11 (by @davidlpc1 / @rrogovski)
 
 ## ✨ Show your support
 
