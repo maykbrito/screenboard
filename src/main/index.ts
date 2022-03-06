@@ -47,8 +47,7 @@ if(process.platform === "linux") {
 // Some APIs can only be used after this event occurs.
 app
   .whenReady()
-  .then(() => {})
-  .then(() => setTimeout(createWindow, 400))
+  .then(() => setTimeout(createWindow, 200))
   .then(createShortcuts)
 
 // Quit when all windows are closed.
@@ -66,7 +65,7 @@ function recreateWindow() {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
-    setTimeout(createWindow, 400)
+    setTimeout(createWindow, 200)
   }
 }
 
